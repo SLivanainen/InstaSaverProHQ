@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InstaSaverPro - Reliable Instagram Video Downloader</title>
+    <meta name="description" content="The most reliable Instagram video and reel downloader. Our tool uses a server-side system to ensure it's always working. Save videos in HD. Fast, secure, and free.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📥</text></svg>">
+    <link rel="canonical" href="https://your-site-name.netlify.app">
+    <meta property="og:url" content="https://your-site-name.netlify.app">
+    <meta property="og:title" content="Reliable Instagram Video Downloader (Always Works)">
+    <meta property="og:description" content="Our downloader uses a resilient server-side system to bypass blocks.">
+    <meta property="og:type" content="website">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <script>
+        tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] } } } }
+    </script>
+    <style>
+        body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+        .ad-placeholder { font-family: monospace; color: #9ca3af; }
+        .dark .ad-placeholder { color: #4b5563; }
+        .modal-backdrop { background-color: rgba(0, 0, 0, 0.5); transition: opacity 0.3s ease; }
+    </style>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 font-sans transition-colors duration-300">
+    <div class="flex flex-col min-h-screen">
+        <header class="sticky top-0 z-50 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm shadow-md"><div class="container mx-auto px-4 py-3 flex justify-between items-center"><a href="/" class="text-2xl font-bold text-pink-500">InstaSaverPro</a><div class="flex items-center gap-2"><span id="statusIndicator" class="text-sm font-semibold text-green-500 flex items-center gap-1"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>System Operational</span><button id="darkModeToggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"><svg class="w-6 h-6 hidden dark:block" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg><svg class="w-6 h-6 block dark:hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm-.707 10.607a1 1 0 011.414-1.414l-.707-.707a1 1 0 01-1.414 1.414l.707.707zM3 11a1 1 0 100-2H2a1 1 0 100 2h1z"></path></svg></button></div></div></header>
+        <main class="flex-grow container mx-auto px-4 py-8 md:py-12"><section class="text-center"><h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 dark:text-white mb-4">The Downloader That <span class="text-pink-500">Always Works</span></h1><p class="max-w-2xl mx-auto text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8">Our tool uses a reliable server-side system to ensure you can always download public Instagram Videos & Reels. Free, fast, and secure.</p><div class="max-w-xl mx-auto my-6 text-center ad-placeholder"><div class="bg-gray-200 dark:bg-gray-700 h-[90px] w-full max-w-[728px] mx-auto flex items-center justify-center">Ad Placeholder (728x90)</div></div><form id="downloadForm" class="max-w-xl mx-auto"><div class="flex flex-col sm:flex-row gap-3"><input type="url" id="urlInput" placeholder="Paste Instagram video or reel URL here..." required class="flex-grow p-4 text-lg border-2 border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-pink-500 dark:bg-gray-800 transition-all w-full"><button type="submit" id="downloadBtn" class="bg-pink-500 text-white font-bold text-lg px-8 py-4 rounded-lg hover:bg-pink-600 transition-all duration-300 transform hover:scale-105 active:scale-100 flex items-center justify-center gap-2 disabled:opacity-60 disabled:transform-none"><svg id="btn-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg><svg id="btn-loader" class="animate-spin h-5 w-5 text-white hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg><span id="btn-text">Download</span></button></div></form><div id="resultBox" class="mt-12 hidden"><div id="errorBox" class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 rounded-md relative max-w-xl mx-auto hidden" role="alert"><p class="font-bold">Download Failed</p><p id="errorMessage">Something went wrong.</p></div><div id="successBox" class="max-w-md mx-auto bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden hidden"><img id="thumbnailPreview" src="" alt="Video Thumbnail" class="w-full h-auto aspect-video object-cover bg-gray-200 dark:bg-gray-700"/><div class="p-6"><h3 id="videoTitle" class="text-xl font-semibold mb-4 text-gray-800 dark:text-white truncate"></h3><a id="downloadLink" href="#" download="instasaverpro-video.mp4" class="block w-full bg-green-500 text-white font-bold text-lg text-center px-6 py-3 rounded-lg hover:bg-green-600 transition-all duration-300">Download HD Video</a></div></div><div class="container mx-auto mt-8 text-center ad-placeholder"><div class="bg-gray-200 dark:bg-gray-700 h-[90px] w-full max-w-[728px] mx-auto flex items-center justify-center">Ad Placeholder (728x90)</div></div></div></section></main>
+        <footer class="bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 py-6 mt-12"><div class="container mx-auto px-4 text-center text-gray-600 dark:text-gray-400"><div class="flex justify-center flex-wrap gap-x-6 gap-y-2 mb-4"><a href="javascript:void(0)" id="privacyBtn" class="hover:text-pink-500">Privacy Policy</a><a href="javascript:void(0)" id="termsBtn" class="hover:text-pink-500">Terms of Use</a><a href="javascript:void(0)" id="disclaimerBtn" class="hover:text-pink-500">Disclaimer</a></div><p>© 2024 InstaSaverPro. All rights reserved.</p></div></footer>
+    </div>
+    <div id="modalBackdrop" class="fixed inset-0 z-50 modal-backdrop hidden"></div><div id="disclaimerModal" class="fixed inset-0 z-[60] p-4 flex items-center justify-center hidden"><div class="relative w-full max-w-2xl bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6"><h2 class="text-2xl font-bold mb-4">Disclaimer</h2><p class="mb-4">This tool is for personal use only. Downloading copyrighted content without permission is not endorsed. All content rights belong to their respective owners.</p><p>InstaSaverPro is not affiliated with Instagram. We do not host any content. All media is served directly from Instagram's CDN.</p><button class="modal-close-btn mt-6 bg-pink-500 text-white px-4 py-2 rounded-lg">Close</button></div></div><div id="privacyModal" class="fixed inset-0 z-[60] p-4 flex items-center justify-center hidden"><div class="relative w-full max-w-2xl bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6"><h2 class="text-2xl font-bold mb-4">Privacy Policy</h2><p class="mb-2">We do not collect or store any personal information or the URLs you enter. Your privacy is paramount.</p><p class="mb-2">This site uses local storage only for essential functionality (like dark mode preference). We do not use tracking cookies.</p><button class="modal-close-btn mt-6 bg-pink-500 text-white px-4 py-2 rounded-lg">Close</button></div></div><div id="termsModal" class="fixed inset-0 z-[60] p-4 flex items-center justify-center hidden"><div class="relative w-full max-w-2xl bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6"><h2 class="text-2xl font-bold mb-4">Terms of Use</h2><p class="mb-2">By using this service, you agree to respect copyright laws and the intellectual property of content creators.</p><p class="mb-2">This service is provided "as is". We are not responsible for any misuse of this tool.</p><button class="modal-close-btn mt-6 bg-pink-500 text-white px-4 py-2 rounded-lg">Close</button></div></div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const ui = { downloadForm: document.getElementById('downloadForm'), urlInput: document.getElementById('urlInput'), downloadBtn: document.getElementById('downloadBtn'), btnText: document.getElementById('btn-text'), btnIcon: document.getElementById('btn-icon'), btnLoader: document.getElementById('btn-loader'), resultBox: document.getElementById('resultBox'), errorBox: document.getElementById('errorBox'), errorMessage: document.getElementById('errorMessage'), successBox: document.getElementById('successBox'), thumbnailPreview: document.getElementById('thumbnailPreview'), videoTitle: document.getElementById('videoTitle'), downloadLink: document.getElementById('downloadLink'), statusIndicator: document.getElementById('statusIndicator'), darkModeToggle: document.getElementById('darkModeToggle'), modalBackdrop: document.getElementById('modalBackdrop'), disclaimerBtn: document.getElementById('disclaimerBtn'), privacyBtn: document.getElementById('privacyBtn'), termsBtn: document.getElementById('termsBtn'), allModals: [document.getElementById('disclaimerModal'), document.getElementById('privacyModal'), document.getElementById('termsModal')], closeButtons: document.querySelectorAll('.modal-close-btn'), };
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) { document.documentElement.classList.add('dark'); }
+        ui.darkModeToggle.addEventListener('click', () => { document.documentElement.classList.toggle('dark'); localStorage.setItem('color-theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light'); });
+        const showModal = (modal) => { ui.modalBackdrop.classList.remove('hidden'); modal.classList.remove('hidden'); };
+        const hideAllModals = () => { ui.modalBackdrop.classList.add('hidden'); ui.allModals.forEach(m => m.classList.add('hidden')); };
+        ui.disclaimerBtn.addEventListener('click', () => showModal(ui.allModals[0])); ui.privacyBtn.addEventListener('click', () => showModal(ui.allModals[1])); ui.termsBtn.addEventListener('click', () => showModal(ui.allModals[2]));
+        ui.closeButtons.forEach(btn => btn.addEventListener('click', hideAllModals)); ui.modalBackdrop.addEventListener('click', hideAllModals);
+
+        async function fetchViaNetlifyFunction(targetUrl) {
+            const apiEndpoint = `/.netlify/functions/fetch-insta?url=${encodeURIComponent(targetUrl)}`;
+            const response = await fetch(apiEndpoint);
+            const data = await response.json();
+            if (!response.ok) { throw new Error(data.error || 'The server function failed.'); }
+            return data.html;
+        }
+
+        ui.downloadForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const cleanUrl = ui.urlInput.value.trim().split("?")[0];
+            if (!cleanUrl.includes('instagram.com/')) { showError('Please enter a valid Instagram URL.'); return; }
+            setLoading(true); hideResult();
+            try {
+                const urlObject = new URL(cleanUrl);
+                const postPath = urlObject.pathname;
+                const embedUrl = `https://www.instagram.com${postPath}embed/captioned/`;
+                const htmlContent = await fetchViaNetlifyFunction(embedUrl);
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(htmlContent, 'text/html');
+                let videoData = {};
+                const ogVideoUrl = doc.querySelector('meta[property="og:video"]')?.getAttribute('content');
+                if (ogVideoUrl) {
+                    videoData = { videoUrl: ogVideoUrl, thumbnailUrl: doc.querySelector('meta[property="og:image"]')?.getAttribute('content'), titleText: doc.querySelector('meta[property="og:title"]')?.getAttribute('content') || "Instagram Video" };
+                } else {
+                    const ldJsonScript = doc.querySelector('script[type="application/ld+json"]');
+                    if (ldJsonScript) {
+                        const jsonData = JSON.parse(ldJsonScript.textContent);
+                        const videoObject = jsonData['@graph']?.find(item => item['@type'] === 'VideoObject') || (jsonData['@type'] === 'VideoObject' ? jsonData : null);
+                        if (videoObject && videoObject.contentUrl) { videoData = { videoUrl: videoObject.contentUrl, thumbnailUrl: videoObject.thumbnailUrl, titleText: videoObject.name || "Instagram Video" }; }
+                    }
+                }
+                if (videoData.videoUrl) { showSuccess(videoData); } else { showError('Video not found. This link might be for a Photo, Story, or a private account. This tool only supports public Video posts and Reels.'); }
+            } catch (error) { console.error('Download process failed:', error); showError(`An error occurred: ${error.message}. The service might be temporarily unavailable or the link is incorrect.`); } finally { setLoading(false); }
+        });
+        function setLoading(isLoading) { ui.downloadBtn.disabled = isLoading; ui.btnText.textContent = isLoading ? 'Working...' : 'Download'; ui.btnIcon.classList.toggle('hidden', isLoading); ui.btnLoader.classList.toggle('hidden', !isLoading); }
+        function hideResult() { ui.resultBox.classList.add('hidden'); ui.errorBox.classList.add('hidden'); ui.successBox.classList.add('hidden'); }
+        function showError(message) { ui.resultBox.classList.remove('hidden'); ui.errorBox.classList.remove('hidden'); ui.successBox.classList.add('hidden'); ui.errorMessage.textContent = message; }
+        function showSuccess({ videoUrl, thumbnailUrl, titleText }) { ui.resultBox.classList.remove('hidden'); ui.errorBox.classList.add('hidden'); ui.successBox.classList.remove('hidden'); ui.thumbnailPreview.src = thumbnailUrl || ''; ui.videoTitle.textContent = titleText; ui.downloadLink.href = videoUrl; }
+    });
+    </script>
+</body>
+</html>
