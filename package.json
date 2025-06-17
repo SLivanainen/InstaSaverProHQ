@@ -1,0 +1,10 @@
+{
+  "name": "pro-insta-downloader",
+  "version": "1.0.0",
+  "description": "A reliable Instagram downloader using Netlify Functions.",
+  "main": "index.html",
+  "scripts": { "test": "echo \"Error: no test specified\" && exit 1" },
+  "author": "",
+  "license": "ISC",
+  "dependencies": { "node-fetch": "^2.6.7" }
+}
